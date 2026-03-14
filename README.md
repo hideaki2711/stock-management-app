@@ -1,73 +1,20 @@
-# React + TypeScript + Vite
+# AI需要予測機能付き・受発注管理システム（DX-Stock-Manager）
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 概要
+現場の受発注業務を効率化し、データに基づいた発注判断を支援するWebアプリケーションです。
+CSV連携による既存データ活用と、Pythonによる需要予測エンジンを組み合わせ、在庫の最適化を実現します。
 
-Currently, two official plugins are available:
+## 解決したい課題
+- 経験と勘に頼った発注による、在庫過多・欠品リスクの削減
+- CSVデータの手入力や移行にかかる工数の削減
+- 現場でのリアルタイムな在庫状況把握の難しさ
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 主な機能
+- **在庫・売上管理**: React/TypeScriptによる高速なUIでのデータ閲覧・編集
+- **データ連携**: CSVファイルによる商品・受発注データの一括インポート/エクスポート
+- **AI需要予測**: Pythonを用いた過去データ分析による、次期発注推奨量の算出（開発予定）
 
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 使用技術（スタック）
+- **Frontend**: React, TypeScript, Vite
+- **Backend**: Python (FastAPI / Flask)
+- **Database**: SQLite / IndexedDB
